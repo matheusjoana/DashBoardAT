@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard de Técnicos</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- Botão para importar Excel -->
+  <div class="importar-excel">
+    <label>
+      <strong>Importar Excel:</strong>
+      <input type="file" id="excelInput" accept=".xlsx" />
+    </label>
+  </div>
+
+  <!-- Filtros, botões e dashboard -->
+  <h1>Dashboard de Técnicos</h1>
+
+  <div class="resumo">
+    <div class="card total">📦 Total: <span id="total">0</span></div>
+    <div class="card finalizado">✅ Finalizados: <span id="finalizado">0</span></div>
+    <div class="card atrasado">⚠️ Atrasados: <span id="atrasado">0</span></div>
+    <div class="card programado">⏳ Programados: <span id="programado">0</span></div>
+    <div class="card pendente">📝 Pendentes: <span id="pendente">0</span></div>
+    <div class="card andamento">🔧 Em andamento: <span id="emAndamento">0</span></div>
+  </div>
+  
+  <div class="relogio" id="relogio"></div>
+  <canvas id="graficoStatus" width="600" height="300"></canvas>
+
+
+  <div class="filtros">
+    <input type="text" id="busca" placeholder="Buscar técnico ou serviço...">
+    <select id="filtroStatus">
+      <option value="">Todos os Status</option>
+      <option value="Atrasado">Atrasado</option>
+      <option value="Programado">Programado</option>
+      <option value="Pendente">Pendente</option>
+      <option value="Em andamento">Em andamento</option>
+      <option value="Finalizado">Finalizado</option>
+    </select>
+  </div>
+
+  <div class="controle">
+    <button id="voltar">◀ Anterior</button>
+    <button id="avancar">Próximo ▶</button>
+  </div>
+
+  <div class="dashboard" id="dashboard"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
